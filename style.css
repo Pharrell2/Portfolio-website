@@ -47,34 +47,35 @@ h2 {
 /* Car card styles */
 .car-box {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 20px; /* Increase padding for a bigger size */
   margin: 10px;
   text-align: center;
   background-color: white;
-  width: calc(25% - 20px); /* Adjust the width as needed */
+  width: calc(30% - 20px); /* Adjust the width as needed */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 400px; /* Set a fixed height for the car boxes */
+  min-height: 400px; /* Set a minimum height for the car boxes */
 }
 
-/* Style for car images (make them smaller) */
+/* Style for car images (make them bigger) */
 .car-image {
   max-width: 100%;
   height: auto;
+  max-height: 200px; /* Set a maximum height for the images */
 }
 
 /* Style for car titles */
 .car-box h5 {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Increase font size for bigger titles */
   font-weight: bold;
   margin-top: 10px;
 }
 
 /* Style for car prices */
 .car-box p {
-  font-size: 1rem;
+  font-size: 1.25rem; /* Increase font size for bigger prices */
   margin: 0;
 }
 
