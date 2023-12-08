@@ -59,11 +59,11 @@ h2 {
   min-height: 400px; /* Set a minimum height for the car boxes */
 }
 
-/* Style for car images (make them bigger) */
+/* Style for car images (make them wider) */
 .car-image {
   max-width: 100%;
   height: auto;
-  max-height: 200px; /* Set a maximum height for the images */
+  max-height: 300px; /* Set a maximum height for the images */
 }
 
 /* Style for car titles */
