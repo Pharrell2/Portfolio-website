@@ -12,6 +12,13 @@ header {
   animation: glowing 2s linear infinite; /* Apply the glowing animation */
 }
 
+/* Heading 2 styles with glowing effect */
+h2 {
+  color: turquoise;
+  text-align: center;
+  animation: glowing 2s linear infinite; /* Apply the glowing animation */
+}
+
 @keyframes glowing {
   0% {
     color: #99FFFF;
