@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-8">
               <h2>Supercars</h2>
-              <div id="carList" class="row">
+              <div id="carList" class="car-boxes-container">
                   <!-- Supercar boxes will be dynamically added here -->
               </div>
           </div>
@@ -54,28 +54,16 @@
           const carList = document.getElementById('carList');
           carList.innerHTML = '';
 
-          let row = document.createElement('div');
-          row.className = 'row';
-
-          cars.forEach((car, index) => {
+          cars.forEach((car) => {
               if (car.price >= minPrice && car.price <= maxPrice) {
                   const carBox = document.createElement('div');
-                  carBox.className = 'col-md-3 mb-3'; // col-md-3 for 4 cars in a row
+                  carBox.className = 'car-box';
                   carBox.innerHTML = `
-                      <div class="car-box">
-                          <img src="${car.image}" class="car-image" alt="${car.name}">
-                          <h5>${car.name}</h5>
-                          <p>Price: $${car.price.toLocaleString()}</p>
-                      </div>
+                      <img src="${car.image}" class="car-image" alt="${car.name}">
+                      <h5>${car.name}</h5>
+                      <p>Price: $${car.price.toLocaleString()}</p>
                   `;
-                  row.appendChild(carBox);
-
-                  // Start a new row after every 4 cars
-                  if ((index + 1) % 4 === 0 || index === cars.length - 1) {
-                      carList.appendChild(row);
-                      row = document.createElement('div');
-                      row.className = 'row';
-                  }
+                  carList.appendChild(carBox);
               }
           });
       }

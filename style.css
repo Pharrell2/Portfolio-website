@@ -26,6 +26,10 @@ header {
   margin: 10px;
   text-align: center;
   background-color: #f9f9f9;
+  display: inline-block; /* Display cars in a horizontal row */
+  width: calc(25% - 20px); /* Adjust the width as needed */
+  vertical-align: top; /* Align cars to the top of the row */
+  box-sizing: border-box;
 }
 
 /* Style for car images (make them smaller) */
@@ -45,17 +49,4 @@ header {
 .car-box p {
   font-size: 1rem;
   margin: 0;
-}
-
-/* Style for the row of cars */
-.row {
-  margin-bottom: 20px;
-}
-
-/* Ensure 4 cars per row on medium and larger screens */
-@media (min-width: 768px) {
-  .col-md-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
 }
