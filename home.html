@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw6p+CDTsL4z5Q9APqH8n5WuKjY5fPf4do5J5psF18KTAhFJw4f+W4C5f8UMZvF" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-UBKwCUM1HO0vOvhNu5Hixsjo7aYAxmOhDWlou0o7g5DK/9WlCQUzr9g9K5EpuSdQ" crossorigin="anonymous">
+
     <title>Hypercar Showcase</title>
    
 </head>
@@ -26,7 +28,6 @@
                           <option value="Italy">Italy</option>
                           <option value="UK">UK</option>
                           <option value="Sweden">Sweden</option>
-                          <!-- Add more country options as needed -->
                       </select>
                   </div>
                   <div class="form-check">
@@ -73,15 +74,24 @@
 
           filteredCars.forEach((car) => {
               const carBox = document.createElement('div');
-              carBox.className = 'car-box col-md-4 mb-3 position-relative'; // Added 'position-relative'
+              carBox.className = 'car-box col-md-4 mb-3';
               carBox.innerHTML = `
                   <img src="${car.image}" class="car-image" alt="${car.name}">
                   <div class="car-details">
                       <h5>${car.name}</h5>
-                      <div class="position-absolute bottom-0 end-0 p-2 bg-white">$${car.price.toLocaleString()}</div> <!-- Positioned price wrapper -->
-                      <p class="car-country">${car.country} <img src="${getFlagImage(car.country)}" class="country-flag" alt="${car.country} "></p>
+                      <p class="car-price">$${car.price.toLocaleString()}</p>
+                      <i class="favorite-icon ${car.favorite ? 'fas' : 'far'} fa-heart"></i>
                   </div>
               `;
+
+              // Add event listener to favorite icon
+              const favoriteIcon = carBox.querySelector('.favorite-icon');
+              favoriteIcon.addEventListener('click', () => {
+                  car.favorite = !car.favorite;
+                  favoriteIcon.classList.toggle('fas');
+                  favoriteIcon.classList.toggle('far');
+              });
+
               carList.appendChild(carBox);
           });
       }
@@ -97,22 +107,6 @@
 
       // Initial display of all cars
       displayCars('all', false);
-
-      // Helper function to get flag image URL based on country
-      function getFlagImage(country) {
-          switch (country) {
-              case 'USA':
-                  return 'usa-flag.avif';
-              case 'Italy':
-                  return 'italy-flag.png';
-              case 'UK':
-                  return 'uk-flag.jpg';
-              case 'Sweden':
-                  return 'sweden-flag.png';
-              default:
-                  return 'default-flag.png';
-          }
-      }
 
       // Add event listener for Sort by Price button
       const sortPriceBtn = document.getElementById('sortPriceBtn');
