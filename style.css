@@ -1,0 +1,45 @@
+/* Custom CSS styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: white;
+}
+
+/* Container styles */
+.container {
+  margin-top: 20px;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Car card styles */
+.card {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
