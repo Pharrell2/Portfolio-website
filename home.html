@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-8">
               <h2>Supercars</h2>
-              <div id="carList" class="car-boxes-container">
+              <div id="carList" class="row">
                   <!-- Supercar boxes will be dynamically added here -->
               </div>
           </div>
@@ -45,7 +45,8 @@
           { name: 'Lamborghini Huracan', price: 280000, image: 'Lamborghini_Huracan.jpg' },
           { name: 'Porsche 911 Turbo S', price: 200000, image: 'porsche.jpg' },
           { name: 'McLaren 720S', price: 300000, image: 'mclaren.jpg' },
-          { name: 'Aston Martin Valkyrie', price: 30000000, image: 'Aston-Martin-Valkyrie.jpg' },
+          { name: 'Aston Martin Valkyrie', price: 3000000, image: 'Aston-Martin-Valkyrie.jpg' },
+          { name: 'Bugatti Veyron', price: 1900000, image: 'bugatti-veyron.jpg' },
       ];
 
       // Function to display cars based on the filter
@@ -53,16 +54,28 @@
           const carList = document.getElementById('carList');
           carList.innerHTML = '';
 
-          cars.forEach((car) => {
+          let row = document.createElement('div');
+          row.className = 'row';
+
+          cars.forEach((car, index) => {
               if (car.price >= minPrice && car.price <= maxPrice) {
                   const carBox = document.createElement('div');
-                  carBox.className = 'car-box col-md-4 mb-3';
+                  carBox.className = 'col-md-3 mb-3'; // col-md-3 for 4 cars in a row
                   carBox.innerHTML = `
-                      <img src="${car.image}" class="car-image" alt="${car.name}">
-                      <h5>${car.name}</h5>
-                      <p>Price: $${car.price.toLocaleString()}</p>
+                      <div class="car-box">
+                          <img src="${car.image}" class="car-image" alt="${car.name}">
+                          <h5>${car.name}</h5>
+                          <p>Price: $${car.price.toLocaleString()}</p>
+                      </div>
                   `;
-                  carList.appendChild(carBox);
+                  row.appendChild(carBox);
+
+                  // Start a new row after every 4 cars
+                  if ((index + 1) % 4 === 0 || index === cars.length - 1) {
+                      carList.appendChild(row);
+                      row = document.createElement('div');
+                      row.className = 'row';
+                  }
               }
           });
       }
