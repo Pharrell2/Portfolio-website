@@ -19,14 +19,6 @@
               <h2>Filters</h2>
               <form id="filterForm">
                   <div class="form-group">
-                      <label for="minPrice">Min Price:</label>
-                      <input type="number" class="form-control" id="minPrice" placeholder="Enter Min Price">
-                  </div>
-                  <div class="form-group">
-                      <label for="maxPrice">Max Price:</label>
-                      <input type="number" class="form-control" id="maxPrice" placeholder="Enter Max Price">
-                  </div>
-                  <div class="form-group">
                       <label for="country">Country:</label>
                       <select class="form-control" id="country">
                           <option value="all">All</option>
@@ -41,7 +33,6 @@
                       <input type="checkbox" class="form-check-input" id="favorites">
                       <label class="form-check-label" for="favorites">Favorites Only</label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Filter</button>
               </form>
           </div>
           <div class="col-md-8">
@@ -68,13 +59,11 @@
       let sortAsc = true; // Variable to keep track of sorting order
 
       // Function to display cars based on the filter
-      function displayCars(minPrice, maxPrice, selectedCountry, showFavorites) {
+      function displayCars(selectedCountry, showFavorites) {
           const carList = document.getElementById('carList');
           carList.innerHTML = '';
 
           let filteredCars = cars.filter((car) => 
-              car.price >= minPrice &&
-              car.price <= maxPrice &&
               (selectedCountry === 'all' || car.country === selectedCountry) &&
               (!showFavorites || car.favorite)
           );
@@ -101,15 +90,13 @@
       const filterForm = document.getElementById('filterForm');
       filterForm.addEventListener('submit', (e) => {
           e.preventDefault();
-          const minPrice = parseInt(document.getElementById('minPrice').value);
-          const maxPrice = parseInt(document.getElementById('maxPrice').value);
           const selectedCountry = document.getElementById('country').value;
           const showFavorites = document.getElementById('favorites').checked;
-          displayCars(minPrice, maxPrice, selectedCountry, showFavorites);
+          displayCars(selectedCountry, showFavorites);
       });
 
       // Initial display of all cars
-      displayCars(0, Infinity, 'all', false);
+      displayCars('all', false);
 
       // Helper function to get flag image URL based on country
       function getFlagImage(country) {
@@ -131,11 +118,9 @@
       const sortPriceBtn = document.getElementById('sortPriceBtn');
       sortPriceBtn.addEventListener('click', () => {
           sortAsc = !sortAsc; // Toggle sorting order
-          const minPrice = parseInt(document.getElementById('minPrice').value);
-          const maxPrice = parseInt(document.getElementById('maxPrice').value);
           const selectedCountry = document.getElementById('country').value;
           const showFavorites = document.getElementById('favorites').checked;
-          displayCars(minPrice, maxPrice, selectedCountry, showFavorites);
+          displayCars(selectedCountry, showFavorites);
       });
   </script>
 
