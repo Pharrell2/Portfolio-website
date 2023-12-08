@@ -1,7 +1,7 @@
 /* Custom CSS styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: blue; /* Change the background color here */
+  background-color: lightblue; /* Change the background color here */
 }
 
 /* Header styles with glowing effect */
@@ -43,7 +43,7 @@ header {
   padding: 10px;
   margin: 10px;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: white;
   display: inline-block; /* Display cars in a horizontal row */
   width: calc(25% - 20px); /* Adjust the width as needed */
   vertical-align: top; /* Align cars to the top of the row */
@@ -75,7 +75,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: lightblue;
   border-top: 1px solid #ddd;
 }
 
