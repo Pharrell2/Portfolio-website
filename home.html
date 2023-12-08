@@ -46,7 +46,7 @@
           { name: 'Porsche 911 Turbo S', price: 200000, image: 'porsche.jpg' },
           { name: 'McLaren 720S', price: 300000, image: 'mclaren.jpg' },
           { name: 'Aston Martin Valkyrie', price: 3000000, image: 'Aston-Martin-Valkyrie.jpg' },
-          { name: 'Bugatti Veyron', price: 1900000, image: 'bugatti-veyron.jpg' },
+          {name: 'Bugatti Veyron', price: 1900000, image: 'bugatti-veyron.jpg'}
       ];
 
       // Function to display cars based on the filter
@@ -57,11 +57,13 @@
           cars.forEach((car) => {
               if (car.price >= minPrice && car.price <= maxPrice) {
                   const carBox = document.createElement('div');
-                  carBox.className = 'car-box';
+                  carBox.className = 'car-box col-md-4 mb-3';
                   carBox.innerHTML = `
                       <img src="${car.image}" class="car-image" alt="${car.name}">
-                      <h5>${car.name}</h5>
-                      <p>Price: $${car.price.toLocaleString()}</p>
+                      <div class="car-details">
+                          <h5>${car.name}</h5>
+                          <p class="car-price">$${car.price.toLocaleString()}</p>
+                      </div>
                   `;
                   carList.appendChild(carBox);
               }

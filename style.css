@@ -3,10 +3,27 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Header styles */
+/* Header styles with glowing effect */
 header {
-  background-color: #333;
-  color: white;
+  background-color: blue;
+  color: turquoise;
+  text-align: center;
+  animation: glowing 2s linear infinite; /* Apply the glowing animation */
+}
+
+@keyframes glowing {
+  0% {
+    color: #99FFFF;
+    text-shadow: 0 0 5px #99FFFF; /* Set the initial shadow color and size */
+  }
+  50% {
+    color: #99FFFF; /* Change the text color at the halfway point */
+    text-shadow: 0 0 20px #99FFFF, 0 0 30px #99FFFF; /* Increase the shadow size */
+  }
+  100% {
+    color: #99FFFF;
+    text-shadow: 0 0 5px #99FFFF; /* Reset to the initial shadow color and size */
+  }
 }
 
 /* Container styles */
@@ -49,4 +66,18 @@ header {
 .car-box p {
   font-size: 1rem;
   margin: 0;
+}
+
+/* Add this to your CSS */
+.car-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.car-price {
+  font-weight: bold;
 }
