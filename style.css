@@ -47,55 +47,61 @@ h2 {
 /* Car card styles */
 .car-box {
   border: 1px solid #ddd;
-  padding: 20px; /* Increase padding for a bigger size */
+  padding: 10px;
   margin: 10px;
   text-align: center;
   background-color: white;
-  width: calc(30% - 20px); /* Adjust the width as needed */
+  display: inline-block; /* Display cars in a horizontal row */
+  width: calc(25% - 20px); /* Adjust the width as needed */
+  vertical-align: top; /* Align cars to the top of the row */
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 400px; /* Set a minimum height for the car boxes */
+  position: relative; /* Add relative positioning */
 }
 
-/* Style for car images (make them wider) */
+/* Style for car images (make them smaller) */
 .car-image {
   max-width: 100%;
   height: auto;
-  max-height: 300px; /* Set a maximum height for the images */
 }
 
 /* Style for car titles */
 .car-box h5 {
-  font-size: 1.5rem; /* Increase font size for bigger titles */
+  font-size: 1.25rem;
   font-weight: bold;
   margin-top: 10px;
 }
 
+/* Style for car details wrapper */
+.car-details {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
 /* Style for car prices */
 .car-box p {
-  font-size: 1.25rem; /* Increase font size for bigger prices */
+  font-size: 1rem;
   margin: 0;
 }
 
-/* Add this to your CSS */
-.car-details {
-  padding: 10px;
-  background-color: lightblue;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+/* Style for car prices */
 .car-price {
   font-weight: bold;
 }
 
-/* Grid layout for car boxes */
-.car-boxes-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Display 4 columns per row */
-  gap: 20px; /* Add some gap between car boxes */
+/* Add this to your CSS */
+.car-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: lightblue;
+  border-top: 1px solid #ddd;
+}
+
+.car-price {
+  font-weight: bold;
 }

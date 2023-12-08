@@ -73,12 +73,12 @@
 
           filteredCars.forEach((car) => {
               const carBox = document.createElement('div');
-              carBox.className = 'car-box col-md-4 mb-3';
+              carBox.className = 'car-box col-md-4 mb-3 position-relative'; // Added 'position-relative'
               carBox.innerHTML = `
                   <img src="${car.image}" class="car-image" alt="${car.name}">
                   <div class="car-details">
                       <h5>${car.name}</h5>
-                      <p class="car-price">$${car.price.toLocaleString()}</p>
+                      <div class="position-absolute bottom-0 end-0 p-2 bg-white">$${car.price.toLocaleString()}</div> <!-- Positioned price wrapper -->
                       <p class="car-country">${car.country} <img src="${getFlagImage(car.country)}" class="country-flag" alt="${car.country} "></p>
                   </div>
               `;
