@@ -43,3 +43,25 @@ header {
   background-color: #0056b3;
   border-color: #0056b3;
 }
+
+/* Style for the image boxes */
+.car-box {
+  border: 1px solid #ddd;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  background-color: #f9f9f9;
+  flex: 1;
+}
+
+/* Style for car images (make them smaller) */
+.car-image {
+  max-width: 100%;
+  height: auto;
+}
+/* Create a flex container for the car boxes */
+.car-boxes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute boxes evenly in a row */
+}

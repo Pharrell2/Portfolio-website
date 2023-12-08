@@ -10,93 +10,147 @@
         /* Add custom styles here */
         /* You can also link an external CSS file */
 
+        /* Custom CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Container styles */
+        .container {
+            margin-top: 20px;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Car card styles */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
         /* Style for the image boxes */
         .car-box {
             border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px;
+            padding: 5px;
+            margin: 5px;
             text-align: center;
             background-color: #f9f9f9;
+            flex: 1;
         }
 
-        /* Style for car images */
+        /* Style for car images (make them smaller) */
         .car-image {
             max-width: 100%;
             height: auto;
         }
+
+        /* Create a flex container for the car boxes */
+        .car-boxes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Distribute boxes evenly in a row */
+        }
     </style>
 </head>
 <body>
-    <header class="bg-dark text-white text-center py-4">
-        <h1>Supercars Showcase</h1>
-    </header>
+  <header class="bg-dark text-white text-center py-4">
+      <h1>Supercars Showcase</h1>
+  </header>
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Filter by Price</h2>
-                <form id="filterForm">
-                    <div class="form-group">
-                        <label for="minPrice">Min Price:</label>
-                        <input type="number" class="form-control" id="minPrice" placeholder="Enter Min Price">
-                    </div>
-                    <div class="form-group">
-                        <label for="maxPrice">Max Price:</label>
-                        <input type="number" class="form-control" id="maxPrice" placeholder="Enter Max Price">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                </form>
-            </div>
-            <div class="col-md-8">
-                <h2>Supercars</h2>
-                <div id="carList" class="row">
-                    <!-- Supercar boxes will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-4">
+              <h2>Filter by Price</h2>
+              <form id="filterForm">
+                  <div class="form-group">
+                      <label for="minPrice">Min Price:</label>
+                      <input type="number" class="form-control" id="minPrice" placeholder="Enter Min Price">
+                  </div>
+                  <div class="form-group">
+                      <label for="maxPrice">Max Price:</label>
+                      <input type="number" class="form-control" id="maxPrice" placeholder="Enter Max Price">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Filter</button>
+              </form>
+          </div>
+          <div class="col-md-8">
+              <h2>Supercars</h2>
+              <div id="carList" class="car-boxes-container">
+                  <!-- Supercar boxes will be dynamically added here -->
+              </div>
+          </div>
+      </div>
+  </div>
 
-    <script>
-        // Sample car data (you can replace this with your data)
-        const cars = [
-            { name: 'Ferrari 488', price: 250000, image: 'ferrari488.jpg' },
-            { name: 'Lamborghini Huracan', price: 280000, image: 'lamborghini.jpg' },
-            { name: 'Porsche 911 Turbo S', price: 200000, image: 'porsche.jpg' },
-            { name: 'McLaren 720S', price: 300000, image: 'mclaren.jpg' },
-        ];
+  <script>
+      // Sample car data (you can replace this with your data)
+      const cars = [
+          { name: 'Ferrari 488', price: 250000, image: 'ferrari488.jpg' },
+          { name: 'Lamborghini Huracan', price: 280000, image: 'Lamborghini_Huracan.jpg' },
+          { name: 'Porsche 911 Turbo S', price: 200000, image: 'porsche.jpg' },
+          { name: 'McLaren 720S', price: 300000, image: 'mclaren.jpg' },
+      ];
 
-        // Function to display cars based on the filter
-        function displayCars(minPrice, maxPrice) {
-            const carList = document.getElementById('carList');
-            carList.innerHTML = '';
+      // Function to display cars based on the filter
+      function displayCars(minPrice, maxPrice) {
+          const carList = document.getElementById('carList');
+          carList.innerHTML = '';
 
-            cars.forEach((car) => {
-                if (car.price >= minPrice && car.price <= maxPrice) {
-                    const carBox = document.createElement('div');
-                    carBox.className = 'car-box col-md-4 mb-3';
-                    carBox.innerHTML = `
-                        <img src="${car.image}" class="car-image" alt="${car.name}">
-                        <h5>${car.name}</h5>
-                        <p>Price: $${car.price.toLocaleString()}</p>
-                    `;
-                    carList.appendChild(carBox);
-                }
-            });
-        }
+          cars.forEach((car) => {
+              if (car.price >= minPrice && car.price <= maxPrice) {
+                  const carBox = document.createElement('div');
+                  carBox.className = 'car-box col-md-4 mb-3';
+                  carBox.innerHTML = `
+                      <img src="${car.image}" class="car-image" alt="${car.name}">
+                      <h5>${car.name}</h5>
+                      <p>Price: $${car.price.toLocaleString()}</p>
+                  `;
+                  carList.appendChild(carBox);
+              }
+          });
+      }
 
-        // Handle form submission
-        const filterForm = document.getElementById('filterForm');
-        filterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const minPrice = parseInt(document.getElementById('minPrice').value);
-            const maxPrice = parseInt(document.getElementById('maxPrice').value);
-            displayCars(minPrice, maxPrice);
-        });
+      // Handle form submission
+      const filterForm = document.getElementById('filterForm');
+      filterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const minPrice = parseInt(document.getElementById('minPrice').value);
+          const maxPrice = parseInt(document.getElementById('maxPrice').value);
+          displayCars(minPrice, maxPrice);
+      });
 
-        // Initial display of all cars
-        displayCars(0, Infinity);
-    </script>
+      // Initial display of all cars
+      displayCars(0, Infinity);
+  </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-rziKpXU5/C2Uwz5/8d1FpJSZfB7j8q5T56OAz8vFcF3Iqzj5F5tZW5g6E5Kw5F5y5V5" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-rziKpXU5/C2Uwz5/8d1FpJSZfB7j8q5T56OAz8vFcF3Iqzj5F5tZW5g6E5Kw5F5y5V5" crossorigin="anonymous"></script>
 </body>
 </html>
