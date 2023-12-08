@@ -1,11 +1,12 @@
 /* Custom CSS styles */
 body {
   font-family: Arial, sans-serif;
+  background-color: blue; /* Change the background color here */
 }
 
 /* Header styles with glowing effect */
 header {
-  background-color: blue;
+  background-color: black;
   color: turquoise;
   text-align: center;
   animation: glowing 2s linear infinite; /* Apply the glowing animation */
