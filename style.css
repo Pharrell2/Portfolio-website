@@ -51,14 +51,12 @@ h2 {
   margin: 10px;
   text-align: center;
   background-color: white;
-  display: inline-block; /* Display cars in a horizontal row */
   width: calc(25% - 20px); /* Adjust the width as needed */
-  vertical-align: top; /* Align cars to the top of the row */
   box-sizing: border-box;
-  height: 400px; /* Set a fixed height for the car boxes */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 400px; /* Set a fixed height for the car boxes */
 }
 
 /* Style for car images (make them smaller) */
@@ -92,4 +90,11 @@ h2 {
 
 .car-price {
   font-weight: bold;
+}
+
+/* Grid layout for car boxes */
+.car-boxes-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Display 4 columns per row */
+  gap: 20px; /* Add some gap between car boxes */
 }
