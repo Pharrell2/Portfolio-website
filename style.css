@@ -55,7 +55,7 @@ h2 {
   width: calc(25% - 20px); /* Adjust the width as needed */
   vertical-align: top; /* Align cars to the top of the row */
   box-sizing: border-box;
-  position: relative; /* Add relative positioning */
+  position: relative; /* Added for positioning the favorite icon */
 }
 
 /* Style for car images (make them smaller) */
@@ -71,28 +71,13 @@ h2 {
   margin-top: 10px;
 }
 
-/* Style for car details wrapper */
-.car-details {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-}
-
 /* Style for car prices */
 .car-box p {
   font-size: 1rem;
   margin: 0;
 }
 
-/* Style for car prices */
-.car-price {
-  font-weight: bold;
-}
-
-/* Add this to your CSS */
+/* Updated style for car details */
 .car-details {
   display: flex;
   justify-content: space-between;
@@ -104,4 +89,13 @@ h2 {
 
 .car-price {
   font-weight: bold;
+}
+
+/* Style for favorite icon */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
