@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- Achtergrondafbeelding -->
     <div class="bg-image">
         <div class="overlay">
             <div class="overlay-text">
@@ -27,10 +28,12 @@
 
     <div class="container mt-4">
         <div class="row">
+            <!-- Filterformulier -->
             <div class="col-md-4">
                 <form id="filterForm">
                     <div class="form-group">
                         <label for="country">Country:</label>
+                        <!-- Dropdown voor landselectie -->
                         <select class="form-control" id="country">
                             <option value="all">All</option>
                             <option value="USA">USA</option>
@@ -40,18 +43,25 @@
                         </select>
                     </div>
                     <div class="form-check">
+                        <!-- Checkbox voor favorieten -->
                         <input type="checkbox" class="form-check-input" id="favorites">
                         <label class="form-check-label" for="favorites">Favorites Only</label>
                     </div>
                 </form>
+                <!-- Knop om auto's te sorteren -->
+                <button id="sortPriceBtn" class="btn btn-secondary sort-button">Sort by cars</button>
             </div>
+            <!-- Hoofdinhoud -->
             <div class="col-md-8">
+                <!-- Hoofdtitel -->
                 <h2 class="text-center mb-3">The top Hypercars</h2>
                 <div class="container mb-3">
                     <div class="row">
                         <div class="col-md-12 text-center button-container">
+                            <!-- Grote doos met knoppen -->
                             <div class="big-box">
                                 <div class="big-box-buttons">
+                                    <!-- Vijf knoppen -->
                                     <button class="btn btn-primary">Home</button>
                                     <button class="btn btn-primary">Motorcycles</button>
                                     <button class="btn btn-primary">Offroad</button>
@@ -61,7 +71,7 @@
                                 <div class="row">
                                     <div class="col-md-8 car-list-container">
                                         <div id="carList" class="row">
-                                            <!-- Car image boxes will be displayed here -->
+                                            <!-- Auto-afbeeldingen worden hier weergegeven -->
                                         </div>
                                     </div>
                                 </div>
@@ -69,24 +79,27 @@
                         </div>
                     </div>
                 </div>
-                <button id="sortPriceBtn" class="btn btn-secondary sort-button">Sort by cars</button>
             </div>
         </div>
     </div>
 
+    <!-- Modaal venster voor auto-details -->
     <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
+                    <!-- Titel modaal venster -->
                     <h5 class="modal-title" id="exampleModalLabel">Car Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
+                            <!-- Afbeelding van de auto -->
                             <img src="" class="modal-car-image" alt="Car Image">
                         </div>
                         <div class="col-md-6">
+                            <!-- Naam, prijs en land van de auto -->
                             <h5 class="modal-car-name"></h5>
                             <p class="modal-car-price"></p>
                             <p class="modal-car-country"></p>
@@ -94,6 +107,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <!-- Sluitknop modaal venster -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -101,7 +115,7 @@
     </div>
 
     <script>
-        // Sample car data (you can replace this with your data)
+        // Voorbeeld autogegevens (vervang dit door je eigen gegevens)
         const cars = [
             { name: 'Ferrari 488', price: 250000, image: 'ferrari_488.jpg', country: 'Italy', favorite: false },
             { name: 'Lamborghini ', price: 280000, image: 'Lamborghini-Huracan.jpg', country: 'Italy', favorite: true },
@@ -111,9 +125,9 @@
             { name: 'McLaren P1', price: 1100000, image: 'McLaren_P1.jpg', country: 'UK', favorite: false },
         ];
 
-        let sortAsc = true; // Variable to keep track of sorting order
+        let sortAsc = true; // Variabele om de sorteervolgorde bij te houden
 
-        // Function to display cars based on the filter
+        // Functie om auto's weer te geven op basis van het filter
         function displayCars(selectedCountry, showFavorites) {
             const carList = document.getElementById('carList');
             carList.innerHTML = '';
@@ -123,7 +137,7 @@
                 (!showFavorites || car.favorite)
             );
 
-            // Sort the cars by price
+            // Sorteer de auto's op prijs
             filteredCars.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
 
             filteredCars.forEach((car, index) => {
@@ -144,7 +158,7 @@
                 const favoriteIcon = carBox.querySelector('.favorite-icon');
 
                 favoriteIcon.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Prevent the modal from opening when the heart is clicked
+                    event.stopPropagation(); // Voorkom dat het modale venster wordt geopend wanneer het hart wordt geklikt
                     car.favorite = !car.favorite;
                     favoriteIcon.classList.toggle('fas');
                     favoriteIcon.classList.toggle('far');
@@ -154,7 +168,7 @@
             });
         }
 
-        // Function to update modal content
+        // Functie om de inhoud van het modale venster bij te werken
         function updateModalContent(index) {
             const modalCarImage = document.querySelector('.modal-car-image');
             const modalCarName = document.querySelector('.modal-car-name');
@@ -167,7 +181,7 @@
             modalCarCountry.textContent = `Country: ${cars[index].country}`;
         }
 
-        // Handle form submission
+        // Afhandeling van formulierindiening
         const filterForm = document.getElementById('filterForm');
         filterForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -176,19 +190,19 @@
             displayCars(selectedCountry, showFavorites);
         });
 
-        // Initial display of all cars
+        // Initiële weergave van alle auto's
         displayCars('all', false);
 
-        // Add event listener for Sort by Price button
+        // Voeg event listener toe voor Sorteer op prijs-knop
         const sortPriceBtn = document.getElementById('sortPriceBtn');
         sortPriceBtn.addEventListener('click', () => {
-            sortAsc = !sortAsc; // Toggle sorting order
+            sortAsc = !sortAsc; // Wissel sorteervolgorde
             const selectedCountry = document.getElementById('country').value;
             const showFavorites = document.getElementById('favorites').checked;
             displayCars(selectedCountry, showFavorites);
         });
 
-        // Add event listener for modal opening
+        // Voeg event listener toe voor het openen van het modale venster
         const carModal = new bootstrap.Modal(document.getElementById('carModal'));
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-details')) {

@@ -1,83 +1,84 @@
+/* Algemene stijlen */
 body {
   font-family: Arial, sans-serif;
-  background-color: lightblue; /* Change the background color here */
+  background-color: lightblue; /* Verander de achtergrondkleur hier */
 }
 
-/* Header styles with glowing effect */
+/* Stijlen voor de koptekst met gloeiend effect */
 header {
   background-color: black;
   color: turquoise;
   text-align: center;
-  animation: glowing 2s linear infinite; /* Apply the glowing animation */
+  animation: glowing 2s linear infinite; /* Pas het gloeiende effect toe */
 }
 
-/* Heading 2 styles with glowing effect */
+/* Stijlen voor Heading 2 met gloeiend effect */
 h2 {
   color: turquoise;
   text-align: left;
-  animation: glowing 2s linear infinite; /* Apply the glowing animation */
+  animation: glowing 2s linear infinite; /* Pas het gloeiende effect toe */
 }
 
 @keyframes glowing {
   0% {
       color: #99FFFF;
-      text-shadow: 0 0 5px #99FFFF; /* Set the initial shadow color and size */
+      text-shadow: 0 0 5px #99FFFF; /* Zet de initiële schaduwkleur en grootte */
   }
   50% {
-      color: #99FFFF; /* Change the text color at the halfway point */
-      text-shadow: 0 0 20px #99FFFF, 0 0 30px #99FFFF; /* Increase the shadow size */
+      color: #99FFFF; /* Verander de tekstkleur op de helft */
+      text-shadow: 0 0 20px #99FFFF, 0 0 30px #99FFFF; /* Vergroot de schaduwgrootte */
   }
   100% {
       color: #99FFFF;
-      text-shadow: 0 0 5px #99FFFF; /* Reset to the initial shadow color and size */
+      text-shadow: 0 0 5px #99FFFF; /* Reset naar de initiële schaduwkleur en grootte */
   }
 }
 
-/* Container styles */
+/* Stijlen voor de container */
 .container {
   margin-top: 20px;
 }
 
-/* Form styles */
+/* Stijlen voor het formulier */
 .form-group {
   margin-bottom: 15px;
 }
 
-/* Car card styles */
+/* Stijlen voor autokaarten */
 .car-box {
   border: 1px solid #ddd;
-  padding: 20px; /* Increased padding for more space */
+  padding: 20px; /* Verhoogde padding voor meer ruimte */
   margin: 10px;
   text-align: center;
   background-color: bisque;
-  display: inline-block; /* Display cars in a horizontal row */
-  width: calc(33.33% - 20px); /* Adjusted width to make them longer */
-  vertical-align: top; /* Align cars to the top of the row */
+  display: inline-block; /* Toon auto's in een horizontale rij */
+  width: calc(33.33% - 20px); /* Aangepaste breedte om ze langer te maken */
+  vertical-align: top; /* Lijn auto's uit met de bovenkant van de rij */
   box-sizing: border-box;
-  position: relative; /* Added for positioning the favorite icon */
-  height: 400px; /* Adjusted height to make them taller */
+  position: relative; /* Toegevoegd voor het positioneren van het favoriete pictogram */
+  height: 400px; /* Aangepaste hoogte om ze langer te maken */
 }
 
-/* Style for car images (make them smaller) */
+/* Stijlen voor auto-afbeeldingen (maak ze kleiner) */
 .car-image {
   max-width: 100%;
   height: auto;
 }
 
-/* Style for car titles */
+/* Stijlen voor autotitels */
 .car-box h5 {
   font-size: 1.25rem;
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* Style for car prices */
+/* Stijlen voor autoprijzen */
 .car-box p {
   font-size: 1rem;
   margin: 0;
 }
 
-/* Updated style for car details */
+/* Bijgewerkte stijlen voor autodetails */
 .car-details {
   display: flex;
   justify-content: space-between;
@@ -91,7 +92,7 @@ h2 {
   font-weight: bold;
 }
 
-/* Style for favorite icon */
+/* Stijlen voor het favoriete pictogram */
 .favorite-icon {
   position: absolute;
   top: 10px;
@@ -105,11 +106,12 @@ h2 {
   border-radius: 5px;
 }
 
+/* Achtergrondafbeelding stijlen */
 .bg-image {
-  background-image: url('SharpJan20.jpg'); /* Replace with your background image */
+  background-image: url('SharpJan20.jpg'); /* Vervang door je eigen achtergrondafbeelding */
   background-size: cover;
   position: relative;
-  height: 100vh; /* Adjust height as needed, this will make it fill the viewport */
+  height: 100vh; /* Pas de hoogte aan zoals nodig, dit vult het venster */
 }
 
 .overlay {
@@ -133,12 +135,14 @@ h2 {
   left: 0;
 }
 
+/* Stijlen voor auto-afbeeldingen */
 .car-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Stijlen voor modale inhoud */
 .modal-content {
   background-color: #f8f9fa;
   border-radius: 0;
@@ -157,27 +161,27 @@ h2 {
 
 .car-box .btn {
   background-color: white;
-  border-radius: 15px; /* Added border-radius */
-  padding: 10px 10px; /* Adjusted padding for bigger buttons */
-  font-size: 15px; /* Adjusted font size for bigger buttons */
-  margin-top: 10px; /* Added margin for spacing */
+  border-radius: 15px; /* Toegevoegde border-radius */
+  padding: 10px 10px; /* Aangepaste padding voor grotere knoppen */
+  font-size: 15px; /* Aangepaste lettergrootte voor grotere knoppen */
+  margin-top: 10px; /* Toegevoegde marge voor ruimte */
 }
 
 .col-md-3 {
   position: sticky;
-  top: 20px; /* Adjust the top value as needed */
+  top: 20px; /* Pas de topwaarde aan zoals nodig */
   height: fit-content;
 }
 
-/* Add box around image boxes */
+/* Voeg een vak toe rond de afbeeldingsvakken */
 .car-list-container {
-  border: 2px solid #ddd; /* Border color and width */
-  padding: 20px; /* Add some padding for space */
-  border-radius: 10px; /* Optional: add rounded corners */
+  border: 2px solid #ddd; /* Randkleur en breedte */
+  padding: 20px; /* Voeg wat padding toe voor ruimte */
+  border-radius: 10px; /* Optioneel: voeg afgeronde hoeken toe */
 }
 
 .car-list-container .row {
-  margin: -10px; /* Adjust negative margin to counteract padding on car-box elements */
+  margin: -10px; /* Pas negatieve marge aan om padding op car-box elementen tegen te gaan */
 }
 
 .button-container {
@@ -197,7 +201,7 @@ h2 {
 }
 
 .big-box-buttons button {
-  margin-right: 10px; /* Added margin between buttons */
+  margin-right: 10px; /* Toegevoegde marge tussen knoppen */
 }
 
 .sort-button {
