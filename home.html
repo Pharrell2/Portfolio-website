@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-pzjw6p+CDTsL4z5Q9APqH8n5WuKjY5fPf4do5J5psF18KTAhFJw4f+W4C5f8UMZvF" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <title>Hypercar Showcase</title>
-
 </head>
 
 <body>
@@ -20,17 +17,16 @@
     <div class="bg-image">
         <div class="overlay">
             <div class="overlay-text">
-                Real Motorsport
-                for Motorsport lovers
+                Real Motorsport for Motorsport lovers
             </div>
         </div>
     </div>
 
     <div class="container mt-4">
         <div class="row">
-            <!-- Filterformulier -->
-            <div class="col-md-4">
-                <form id="filterForm">
+            <!-- Filterformulier en Sorteer op prijs-knop -->
+            <div class="col-md-4 filter-sort-container">
+                <form id="filterForm" class="filters">
                     <div class="form-group">
                         <label for="country">Country:</label>
                         <!-- Dropdown voor landselectie -->
@@ -48,13 +44,15 @@
                         <label class="form-check-label" for="favorites">Favorites Only</label>
                     </div>
                 </form>
-                <!-- Knop om auto's te sorteren -->
+                <!-- Sorteer op prijs-knop -->
                 <button id="sortPriceBtn" class="btn btn-secondary sort-button">Sort by cars</button>
             </div>
             <!-- Hoofdinhoud -->
             <div class="col-md-8">
-                <!-- Hoofdtitel -->
-                <h2 class="text-center mb-3">The top Hypercars</h2>
+                <!-- Hoofdtitel met Sorteer op prijs-knop -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-center mb-0">The top Hypercars</h2>
+                </div>
                 <div class="container mb-3">
                     <div class="row">
                         <div class="col-md-12 text-center button-container">
@@ -62,17 +60,17 @@
                             <div class="big-box">
                                 <div class="big-box-buttons">
                                     <!-- Vijf knoppen -->
-                                    <button class="btn btn-primary">Home</button>
-                                    <button class="btn btn-primary">Motorcycles</button>
-                                    <button class="btn btn-primary">Offroad</button>
-                                    <button class="btn btn-primary">special</button>
-                                    <button class="btn btn-primary">Hig-End</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('home.html')">Home</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('motorcycles.html')">Motorcycles</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('offroad.html')">Offroad</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('special.html')">Special</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('high-end.html')">High-End</button>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-8 car-list-container">
-                                        <div id="carList" class="row">
-                                            <!-- Auto-afbeeldingen worden hier weergegeven -->
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 car-list-container">
+                                    <div id="carList" class="row">
+                                        <!-- Auto-afbeeldingen worden hier weergegeven -->
                                     </div>
                                 </div>
                             </div>
@@ -83,34 +81,22 @@
         </div>
     </div>
 
-    <!-- Modaal venster voor auto-details -->
-    <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <!-- Titel modaal venster -->
-                    <h5 class="modal-title" id="exampleModalLabel">Car Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- Afbeelding van de auto -->
-                            <img src="" class="modal-car-image" alt="Car Image">
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Naam, prijs en land van de auto -->
-                            <h5 class="modal-car-name"></h5>
-                            <p class="modal-car-price"></p>
-                            <p class="modal-car-country"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <!-- Sluitknop modaal venster -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <!-- Car details sectie -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 car-details-container">
+                <div id="carDetails" class="row">
+                    <!-- Car details will be displayed here -->
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Modaal venster voor autogegevens -->
+    <div id="carDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCarDetailsModal()">&times;</span>
+            <div id="modalContent"></div>
         </div>
     </div>
 
@@ -145,12 +131,13 @@
                 carBox.className = 'car-box col-md-4 mb-3';
                 carBox.innerHTML = `
                     <div class="image-box">
-                        <img src="${car.image}" class="car-image" alt="${car.name}">
+                        <img src="${car.image}" class="car-image" alt="${car.name}" onclick="openCarDetailsModal(${index})">
                     </div>
                     <div class="car-details">
                         <h5>${car.name}</h5>
-                        <p>$${car.price.toLocaleString()}</p>
-                        <button type="button" class="btn btn-info view-details" data-bs-toggle="modal" data-bs-target="#carModal" data-car-index="${index}">View Details</button>
+                        <button type="button" class="btn btn-info view-details" data-car-index="${index}" onclick="openCarDetailsModal(${index})">
+                            $${car.price.toLocaleString()}
+                        </button>
                         <i class="favorite-icon ${car.favorite ? 'fas' : 'far'} fa-heart"></i>
                     </div>
                 `;
@@ -166,19 +153,34 @@
 
                 carList.appendChild(carBox);
             });
+
         }
 
-        // Functie om de inhoud van het modale venster bij te werken
-        function updateModalContent(index) {
-            const modalCarImage = document.querySelector('.modal-car-image');
-            const modalCarName = document.querySelector('.modal-car-name');
-            const modalCarPrice = document.querySelector('.modal-car-price');
-            const modalCarCountry = document.querySelector('.modal-car-country');
+        // Functie om de inhoud van het auto-details bij te werken
+        function updateCarDetails(index) {
+            const carDetailsContainer = document.getElementById('carDetails');
+            const selectedCar = cars[index];
 
-            modalCarImage.src = cars[index].image;
-            modalCarName.textContent = cars[index].name;
-            modalCarPrice.textContent = `$${cars[index].price.toLocaleString()}`;
-            modalCarCountry.textContent = `Country: ${cars[index].country}`;
+            const carDetails = document.createElement('div');
+            carDetails.className = 'car-details col-md-12';
+            carDetails.innerHTML = `
+                <h2>${selectedCar.name}</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="${selectedCar.image}" class="car-image" alt="${selectedCar.name}">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Price: $${selectedCar.price.toLocaleString()}</p>
+                        <p>Country: ${selectedCar.country}</p>
+                        <p>${selectedCar.favorite ? 'This car is a favorite!' : 'Not a favorite'}</p>
+                        <p>Some additional information about the car...</p>
+                    </div>
+                </div>
+            `;
+
+            // Clear previous car details
+            carDetailsContainer.innerHTML = '';
+            carDetailsContainer.appendChild(carDetails);
         }
 
         // Afhandeling van formulierindiening
@@ -202,20 +204,51 @@
             displayCars(selectedCountry, showFavorites);
         });
 
-        // Voeg event listener toe voor het openen van het modale venster
-        const carModal = new bootstrap.Modal(document.getElementById('carModal'));
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('view-details')) {
-                const index = e.target.dataset.carIndex;
-                updateModalContent(index);
-                carModal.show();
-            }
-        });
-    </script>
+        // Functie om naar andere pagina's te navigeren
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-rziKpXU5/C2Uwz5/8d1FpJSZfB7j8q5T56OAz8vFcF3Iqzj5F5tZW5g6E5Kw5F5y5V5"
-        crossorigin="anonymous"></script>
+        // Functie om de modale inhoud met autogegevens te openen
+        function openCarDetailsModal(index) {
+            const selectedCar = cars[index];
+
+            // Vul de modale inhoud met autogegevens
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <h2>${selectedCar.name}</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="${selectedCar.image}" class="car-image" alt="${selectedCar.name}">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Price: $${selectedCar.price.toLocaleString()}</p>
+                        <p>Country: ${selectedCar.country}</p>
+                        <p>${selectedCar.favorite ? 'This car is a favorite!' : 'Not a favorite'}</p>
+                        <p>Some additional information about the car...</p>
+                    </div>
+                </div>
+            `;
+
+            // Open de modale inhoud
+            const modal = document.getElementById('carDetailsModal');
+            modal.style.display = 'block';
+        }
+
+        // Functie om het modale venster te sluiten
+        function closeCarDetailsModal() {
+            const modal = document.getElementById('carDetailsModal');
+            modal.style.display = 'none';
+        }
+
+        // Sluit het modale venster als de gebruiker buiten het venster klikt
+        window.onclick = function (event) {
+            const modal = document.getElementById('carDetailsModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 
 </html>

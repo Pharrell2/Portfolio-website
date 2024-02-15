@@ -1,7 +1,9 @@
 /* Algemene stijlen */
 body {
-  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: lightblue; /* Verander de achtergrondkleur hier */
+  color: mediumturquoise;
 }
 
 /* Stijlen voor de koptekst met gloeiend effect */
@@ -44,13 +46,43 @@ h2 {
   margin-bottom: 15px;
 }
 
+/* Sorteer knop boven McLaren */
+.sort-button {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 2; /* Zet de z-index hoger dan de andere elementen */
+  border-radius: 5px;
+  color: aqua;
+  background-color: white;
+  font-style: italic;
+}
+
+/* Container voor filters en sorteer knop */
+.filter-sort-container {
+  position: relative;
+}
+
+/* Filters */
+.filters {
+  /* Stijlen voor je filters */
+}
+
+/* Knoppencontainer */
+.big-box-buttons {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 1; /* Zet de z-index lager dan de sorteer knop */
+}
+
 /* Stijlen voor autokaarten */
 .car-box {
   border: 1px solid #ddd;
   padding: 20px; /* Verhoogde padding voor meer ruimte */
   margin: 10px;
   text-align: center;
-  background-color: bisque;
+  background-color: oldlace;
   display: inline-block; /* Toon auto's in een horizontale rij */
   width: calc(33.33% - 20px); /* Aangepaste breedte om ze langer te maken */
   vertical-align: top; /* Lijn auto's uit met de bovenkant van de rij */
@@ -63,6 +95,7 @@ h2 {
 .car-image {
   max-width: 100%;
   height: auto;
+  cursor: pointer; /* Voeg cursor toe voor aanwijzer bij het klikken op afbeeldingen */
 }
 
 /* Stijlen voor autotitels */
@@ -126,7 +159,8 @@ h2 {
 }
 
 .overlay-text {
-  color: white;
+  font-style: italic;
+  color: lightblue;
   font-size: 24px;
   text-align: left;
   padding: 20px;
@@ -140,6 +174,7 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer; /* Voeg cursor toe voor aanwijzer bij het klikken op afbeeldingen */
 }
 
 /* Stijlen voor modale inhoud */
@@ -160,10 +195,10 @@ h2 {
 }
 
 .car-box .btn {
-  background-color: white;
+  background-color: mediumturquoise;
   border-radius: 15px; /* Toegevoegde border-radius */
   padding: 10px 10px; /* Aangepaste padding voor grotere knoppen */
-  font-size: 15px; /* Aangepaste lettergrootte voor grotere knoppen */
+  font-size: 10px; /* Aangepaste lettergrootte voor grotere knoppen */
   margin-top: 10px; /* Toegevoegde marge voor ruimte */
 }
 
@@ -204,8 +239,92 @@ h2 {
   margin-right: 10px; /* Toegevoegde marge tussen knoppen */
 }
 
-.sort-button {
-  position: absolute;
-  top: 10px;
-  right: 0;
+/* Aanvullende stijlen voor car-details-container */
+.car-details-container {
+  display: none;
+}
+
+/* Aanvullende stijlen voor car-details */
+.car-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: lightblue;
+  border-top: 1px solid #ddd;
+}
+
+/* Aanvullende stijlen voor autotitels in car-details */
+.car-details h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Aanvullende stijlen voor prijsknoppen in car-details */
+.car-details .btn-primary {
+  background-color: mediumturquoise;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Aanvullende stijlen voor de modale inhoud */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10% auto;
+  max-width: 600px;
+}
+
+/* Toegevoegde stijlen voor de sluitknop van de modale inhoud */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Aanvullende stijlen voor de navigatieknoppen */
+.btn-primary {
+  background-color: mediumturquoise;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: mediumturquoise;
+  border: 1px solid mediumturquoise;
 }
