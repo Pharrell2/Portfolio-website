@@ -118,13 +118,7 @@
             const carList = document.getElementById('carList');
             carList.innerHTML = '';
 
-            let filteredCars = cars.filter((car) =>
-                (selectedCountry === 'all' || car.country === selectedCountry) &&
-                (!showFavorites || car.favorite)
-            );
-
-            // Sorteer de auto's op prijs
-            filteredCars.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
+            let filteredCars = getSortedCars(selectedCountry, showFavorites);
 
             filteredCars.forEach((car, index) => {
                 const carBox = document.createElement('div');
@@ -144,7 +138,9 @@
 
                 const favoriteIcon = carBox.querySelector('.favorite-icon');
 
-                favoriteIcon.addEventListener('click', (event) => {
+                favoriteIcon.addEventListener('click', (event) =>
+
+ {
                     event.stopPropagation(); // Voorkom dat het modale venster wordt geopend wanneer het hart wordt geklikt
                     car.favorite = !car.favorite;
                     favoriteIcon.classList.toggle('fas');
@@ -154,6 +150,19 @@
                 carList.appendChild(carBox);
             });
 
+        }
+
+        // Functie om de auto's te sorteren op prijs
+        function getSortedCars(selectedCountry, showFavorites) {
+            let filteredCars = cars.filter((car) =>
+                (selectedCountry === 'all' || car.country === selectedCountry) &&
+                (!showFavorites || car.favorite)
+            );
+
+            // Sorteer de auto's op prijs
+            filteredCars.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
+
+            return filteredCars;
         }
 
         // Functie om de inhoud van het auto-details bij te werken
@@ -211,7 +220,12 @@
 
         // Functie om de modale inhoud met autogegevens te openen
         function openCarDetailsModal(index) {
-            const selectedCar = cars[index];
+            // Haal de gesorteerde auto's op
+            const selectedCountry = document.getElementById('country').value;
+            const showFavorites = document.getElementById('favorites').checked;
+            const sortedCars = getSortedCars(selectedCountry, showFavorites);
+
+            const selectedCar = sortedCars[index];
 
             // Vul de modale inhoud met autogegevens
             const modalContent = document.getElementById('modalContent');
@@ -252,3 +266,5 @@
 </body>
 
 </html>
+```
+

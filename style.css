@@ -91,6 +91,24 @@ h2 {
   height: 400px; /* Aangepaste hoogte om ze langer te maken */
 }
 
+/* Stijlen voor auto-afbeeldingen binnen de car-box */
+.car-box .image-box {
+  overflow: hidden;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.car-box .image-box img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.car-box .image-box img:hover {
+  transform: none; /* Verwijder de zoomtransformatie */
+}
+
 /* Stijlen voor auto-afbeeldingen (maak ze kleiner) */
 .car-image {
   max-width: 100%;
@@ -206,6 +224,8 @@ h2 {
   position: sticky;
   top: 20px; /* Pas de topwaarde aan zoals nodig */
   height: fit-content;
+
+
 }
 
 /* Voeg een vak toe rond de afbeeldingsvakken */
@@ -292,6 +312,13 @@ h2 {
   max-width: 600px;
 }
 
+/* Toegevoegde stijlen voor de modale afbeelding */
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 300px; /* Pas de maximale hoogte aan zoals nodig */
+  object-fit: cover;
+}
 /* Toegevoegde stijlen voor de sluitknop van de modale inhoud */
 .close {
   color: #aaa;
@@ -328,3 +355,5 @@ h2 {
   color: mediumturquoise;
   border: 1px solid mediumturquoise;
 }
+
+
