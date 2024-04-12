@@ -226,8 +226,6 @@ h2 {
   position: sticky;
   top: 20px; /* Pas de topwaarde aan zoals nodig */
   height: fit-content;
-
-
 }
 
 /* Voeg een vak toe rond de afbeeldingsvakken */
@@ -321,6 +319,7 @@ h2 {
   max-height: 300px; /* Pas de maximale hoogte aan zoals nodig */
   object-fit: cover;
 }
+
 /* Toegevoegde stijlen voor de sluitknop van de modale inhoud */
 .close {
   color: #aaa;
@@ -358,4 +357,19 @@ h2 {
   border: 1px solid mediumturquoise;
 }
 
+/* Stijlen voor social media iconen */
+.social-icons {
+  text-align: center; /* Centreer de iconen */
+  margin-top: 20px; /* Ruimte boven de iconen toevoegen */
+}
 
+.social-icons a {
+  color: #333; /* Kleur van de iconen */
+  font-size: 24px; /* Grootte van de iconen */
+  margin: 0 10px; /* Marge tussen de iconen toevoegen */
+  transition: color 0.3s; /* Overgangseffect voor de kleurverandering */
+}
+
+.social-icons a:hover {
+  color: mediumturquoise; /* Verander de kleur van de iconen bij hover */
+}
