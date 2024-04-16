@@ -56,6 +56,14 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h2 class="text-center mb-0">The top Hypercars</h2>
                 </div>
+                <!-- Sign Up knop -->
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button id="showSignupForm" class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="container mb-3">
                     <div class="row">
                         <div class="col-md-12 text-center button-container">
@@ -82,35 +90,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Sign Up knop -->
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <a href="#" id="showSignupForm" class="btn btn-primary">Sign Up</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Aanmeldingsformulier -->
-    <div id="signupForm" class="signup-form-container">
-        <h2>Sign Up</h2>
-        <form id="signupFormContent" action="aanmeld.php" method="post">
-            <div class="form-group">
-                <label for="firstname">First Name:</label>
-                <input type="text" class="form-control" id="firstname" name="firstname" required>
-            </div>
-            <div class="form-group">
-                <label for="lastname">Last Name:</label>
-                <input type="text" class="form-control" id="lastname" name="lastname" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
     </div>
 
     <!-- Car details sectie -->
@@ -140,7 +119,24 @@
         </div>
     </div>
 
-
+    <!-- Aanmeldingsformulier -->
+    <div id="signupForm" class="signup-form-container" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signupFormContent" action="aanmeld.php" method="post">
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     <script>
         // Voorbeeld autogegevens (vervang dit door je eigen gegevens)
         const cars = [

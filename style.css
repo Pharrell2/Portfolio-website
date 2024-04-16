@@ -373,3 +373,21 @@ h2 {
 .social-icons a:hover {
   color: mediumturquoise; /* Verander de kleur van de iconen bij hover */
 }
+
+/* Stijlen voor de Sign Up knop */
+#showSignupForm {
+  background-color: mediumturquoise; /* Achtergrondkleur */
+  color: white; /* Tekstkleur */
+  padding: 12px 24px; /* Padding aanpassen */
+  border: none;
+  border-radius: 25px; /* Hoeken afgerond */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s; /* Overgangseffecten toevoegen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtiele box-shadow */
+}
+
+#showSignupForm:hover {
+  background-color: #008080; /* Donkerder tint van mediumturquoise */
+  transform: translateY(-2px); /* Maak de knop iets omhoog wanneer erop wordt gehoverd */
+}
