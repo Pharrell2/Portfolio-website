@@ -24,7 +24,7 @@
 
     <div class="container mt-4">
         <div class="row">
-            <!--User story3 Filterformulier en Sorteer op prijs-knop -->
+           <!--Filterformulier en Sorteer op prijs-knop -->
             <div class="col-md-4 filter-sort-container">
                 <form id="filterForm" class="filters">
                     <div class="form-group">
@@ -150,6 +150,7 @@
 
         let sortAsc = true; // Variabele om de sorteervolgorde bij te houden
 
+       // User story 1: Auto's filteren op land
         // Functie om auto's weer te geven op basis van het filter
         function displayCars(selectedCountry, showFavorites) {
             const carList = document.getElementById('carList');
@@ -186,20 +187,21 @@
             });
 
         }
-
-        // Functie om de auto's te sorteren op prijs
+ // User story 2: Favoriete Hypercars markeren
+        // Toggle tussen favorieten en niet-favorieten
         function getSortedCars(selectedCountry, showFavorites) {
             let filteredCars = cars.filter((car) =>
                 (selectedCountry === 'all' || car.country === selectedCountry) &&
                 (!showFavorites || car.favorite)
             );
 
-            // Sorteer de auto's op prijs
+           // User story 3: Auto's sorteren op prijs
+        // Sorteer de auto's op prijs bij klikken op de button
             filteredCars.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
 
             return filteredCars;
         }
-
+ // User story 4: Details van voertuigen bekijken
         // Functie om de inhoud van het auto-details bij te werken
         function updateCarDetails(index) {
             const carDetailsContainer = document.getElementById('carDetails');
