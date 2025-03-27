@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" />
+    <link href="portfolio.js" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <title>Hypercar Showcase</title>
+</head>
+
+<body>
+    <!-- Achtergrondafbeelding -->
+    <div class="bg-image">
+        <div class="overlay">
+            <div class="overlay-text">
+                Real Motorsport for Motorsport lovers
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Filterformulier en Sorteer op prijs-knop -->
+            <div class="col-md-4 filter-sort-container">
+                <form id="filterForm" class="filters">
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <!-- Dropdown voor landselectie -->
+                        <select class="form-control" id="country">
+                            <option value="all">All</option>
+                            <option value="USA">USA</option>
+                            <option value="France">France</option>
+                            <option value="Italy">Italy</option>
+                            <option value="UK">UK</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Germany">Germany</option>
+                    </div>
+                    <div class="form-check">
+                        <!-- Checkbox voor favorieten -->
+                        <input type="checkbox" class="form-check-input" id="favorites">
+                        <label class="form-check-label" for="favorites">Favorites Only</label>
+                    </div>
+                </form>
+                <!-- Sorteer op prijs-knop -->
+                <button id="sortPriceBtn" class="btn btn-secondary sort-button">Sort by cars</button>
+            </div>
+            <!-- Hoofdinhoud -->
+            <div class="col-md-8">
+                <!-- Hoofdtitel met Sorteer op prijs-knop -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="text-center mb-0">The top Hypercars</h2>
+                </div>
+                <div class="container mb-3">
+                    <div class="row">
+                        <div class="col-md-12 text-center button-container">
+                            <!-- Grote doos met knoppen -->
+                            <div class="big-box">
+                                <div class="big-box-buttons">
+                                    <!-- Vijf knoppen -->
+                                    <button class="btn btn-primary" onclick="navigateToPage('home.html')">Home</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('motorcycles.html')">Motorcycles</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('offroad.html')">Offroad</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('special.html')">Special</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('high-end.html')">High-End</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 car-list-container">
+                                    <div id="carList" class="row">
+                                        <!-- Auto-afbeeldingen worden hier weergegeven -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car details sectie -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 car-details-container">
+                <div id="carDetails" class="row">
+                    <!-- Car details will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modaal venster voor autogegevens -->
+    <div id="carDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCarDetailsModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+    
+    </script>
+</body>
+<script src="motorcycles.js"></script>
+</html>
+```
+
