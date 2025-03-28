@@ -1,11 +1,11 @@
- // Voorbeeld autogegevens (vervang dit door je eigen gegevens)
- const cars = [
-    { name: 'Hummer H1', price: 20000, image: 'Hummer.jpg', country: 'Usa', favorite: false },
-    { name: 'Jeep Wrangler ', price: 32095, image: 'jeep.jpg', country: 'Usa', favorite: true },
-    { name: 'Ram TRX ', price: 45498, image: 'ram_trx.jpg', country: 'Usa', favorite: false },
-    { name: 'Toyota Tacamo ', price: 22500, image: 'toyota-tacoma.jpg', country: 'Japan', favorite: false },
-    { name: 'Ford Branco', price: 153100, image: 'ford-bronco.jpg', country: 'Usa', favorite: true },
-    { name: 'Chevrolet Colorado ZR2', price: 60540, image: 'chevorlet.jpg', country: 'usa', favorite: false },
+// Voorbeeld autogegevens (vervang dit door je eigen gegevens)
+const cars = [
+    { name: 'Ferrari 250 GTO', price: 48300000, image: '../img/1962-ferrari-gto.jpg', country: 'Italy', favorite: false },
+    { name: 'Bugatti Atlantic Coupé', price: 100000000, image: '../img/bugatti-1936.jpg', country: 'France', favorite: true },
+    { name: 'Corvette stingray 1963', price: 159900, image: '../img/Chevrolet-Sting-Ray.jpg', country: 'Usa', favorite: false },
+    { name: 'Jaguar e-type coupe', price: 1900000, image: '../img/jaguar-1961.jpg', country: 'UK', favorite: false },
+    { name: 'BMW motorrad vision next 100', price: 0, image: '../img/bmw-vision.jpg', country: 'Germany', favorite: true },
+    { name: 'Suzuki Falcorustyco', price: 0, image: '../img/Suzuki-Falcorustyco.jpg', country: 'Japan', favorite: false },
 ];
 
 let sortAsc = true; // Variabele om de sorteervolgorde bij te houden
