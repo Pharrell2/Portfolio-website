@@ -1,20 +1,16 @@
-
-
-
 // Voorbeeld autogegevens (vervang dit door je eigen gegevens)
- const cars = [
-    { name: 'Ferrari 488', price: 250000, image: 'ferrari_488.jpg', country: 'Italy', favorite: false },
-    { name: 'Lamborghini Aventador ', price: 280000, image: 'Lamborghini-Huracan.jpg', country: 'Italy', favorite: true },
-    { name: 'Aston Martin ', price: 3000000, image: 'Aston-Martin-Valkyrie.jpg', country: 'UK', favorite: false },
-    { name: 'Bugatti  Veyron ', price: 1900000, image: 'bugatti-veyron.jpg', country: 'France', favorite: false },
-    { name: 'Koenigsegg Agera', price: 1500000, image: 'koenigsegg.jpg', country: 'Sweden', favorite: true },
-    { name: 'McLaren P1', price: 1100000, image: 'McLaren_P1.jpg', country: 'UK', favorite: false },
+const cars = [
+    { name: 'Ferrari 488', price: 250000, image: '../img/ferrari_488.jpg', country: 'Italy', favorite: false },
+    { name: 'Lamborghini Aventador', price: 280000, image: '../img/Lamborghini-Huracan.jpg', country: 'Italy', favorite: true },
+    { name: 'Aston Martin Valkyrie', price: 3000000, image: '../img/Aston-Martin-Valkyrie.jpg', country: 'UK', favorite: false },
+    { name: 'Bugatti Veyron', price: 1900000, image: '../img/bugatti-veyron.jpg', country: 'France', favorite: false },
+    { name: 'Koenigsegg Agera', price: 1500000, image: '../img/koenigsegg.jpg', country: 'Sweden', favorite: true }, // ✅ Fix hier
+    { name: 'McLaren P1', price: 1100000, image: '../img/McLaren_P1.jpg', country: 'UK', favorite: false },
 ];
 
 let sortAsc = true; // Variabele om de sorteervolgorde bij te houden
 
 // User story 1: Auto's filteren op land
-// Functie om auto's weer te geven op basis van het filter
 function displayCars(selectedCountry, showFavorites) {
     const carList = document.getElementById('carList');
     carList.innerHTML = '';
@@ -48,24 +44,22 @@ function displayCars(selectedCountry, showFavorites) {
 
         carList.appendChild(carBox);
     });
-
 }
+
 // User story 2: Favoriete Hypercars markeren
-// Toggle tussen favorieten en niet-favorieten
 function getSortedCars(selectedCountry, showFavorites) {
     let filteredCars = cars.filter((car) =>
         (selectedCountry === 'all' || car.country === selectedCountry) &&
         (!showFavorites || car.favorite)
     );
 
-   // User story 3: Auto's sorteren op prijs
-// Sorteer de auto's op prijs bij klikken op de button
+    // User story 3: Auto's sorteren op prijs
     filteredCars.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
 
     return filteredCars;
 }
+
 // User story 4: Details van voertuigen bekijken
-// Functie om de inhoud van het auto-details bij te werken
 function updateCarDetails(index) {
     const carDetailsContainer = document.getElementById('carDetails');
     const selectedCar = cars[index];
@@ -104,30 +98,27 @@ filterForm.addEventListener('submit', (e) => {
 // Initiële weergave van alle auto's
 displayCars('all', false);
 
-// Voeg event listener toe voor Sorteer op prijs-knop
+// Sorteerknop functionaliteit
 const sortPriceBtn = document.getElementById('sortPriceBtn');
 sortPriceBtn.addEventListener('click', () => {
-    sortAsc = !sortAsc; // Wissel sorteervolgorde
+    sortAsc = !sortAsc;
     const selectedCountry = document.getElementById('country').value;
     const showFavorites = document.getElementById('favorites').checked;
     displayCars(selectedCountry, showFavorites);
 });
 
-// Functie om naar andere pagina's te navigeren
+// Navigatiefunctie
 function navigateToPage(page) {
     window.location.href = page;
 }
 
-// Functie om de modale inhoud met autogegevens te openen
+// Open modale inhoud
 function openCarDetailsModal(index) {
-    // Haal de gesorteerde auto's op
     const selectedCountry = document.getElementById('country').value;
     const showFavorites = document.getElementById('favorites').checked;
     const sortedCars = getSortedCars(selectedCountry, showFavorites);
-
     const selectedCar = sortedCars[index];
 
-    // Vul de modale inhoud met autogegevens
     const modalContent = document.getElementById('modalContent');
     modalContent.innerHTML = `
         <h2>${selectedCar.name}</h2>
@@ -144,18 +135,17 @@ function openCarDetailsModal(index) {
         </div>
     `;
 
-    // Open de modale inhoud
     const modal = document.getElementById('carDetailsModal');
     modal.style.display = 'block';
 }
 
-// Functie om het modale venster te sluiten
+// Modale venster sluiten
 function closeCarDetailsModal() {
     const modal = document.getElementById('carDetailsModal');
     modal.style.display = 'none';
 }
 
-// Sluit het modale venster als de gebruiker buiten het venster klikt
+// Sluit modale venster bij klikken buiten het venster
 window.onclick = function (event) {
     const modal = document.getElementById('carDetailsModal');
     if (event.target === modal) {

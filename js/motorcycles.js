@@ -1,11 +1,11 @@
     // Voorbeeld autogegevens (vervang dit door je eigen gegevens)
     const cars = [
-        { name: 'Energica Ego+RS', price: 3311090, image: 'Energica.jpg', country: 'Italy', favorite: false },
-        { name: 'suzuki gsx1300r', price: 19599, image: 'Suzuki.jpg', country: 'Japan', favorite: true },
-        { name: 'Honda Fireblade', price: 300000, image: 'Fireblade.jpg', country: 'Japan', favorite: false },
-        { name: 'Kawasaki Ninja H2R', price: 56400, image: 'kawasaki.jpg', country: 'Japan', favorite: false },
-        { name: 'Ducati Panigale', price: 47690, image: 'Ducati.jpg', country: 'Italy', favorite: true },
-        { name: 'BMW M 1000 R', price: 1100000, image: 'bmw.jpg', country: 'Germany', favorite: false },
+        { name: 'Energica Ego+RS', price: 3311090, image: '../img/Energica.jpg', country: 'Italy', favorite: false },
+        { name: 'suzuki gsx1300r', price: 19599, image: '../img/Suzuki.jpg', country: 'Japan', favorite: true },
+        { name: 'Honda Fireblade', price: 300000, image: '../img/Fireblade.jpg', country: 'Japan', favorite: false },
+        { name: 'Kawasaki Ninja H2R', price: 56400, image: '../img/kawasaki.jpg', country: 'Japan', favorite: false },
+        { name: 'Ducati Panigale', price: 47690, image: '../img/Ducati.jpg', country: 'Italy', favorite: true },
+        { name: 'BMW M 1000 R', price: 1100000, image: '../img/bmw.jpg', country: 'Germany', favorite: false },
     ];
 
     let sortAsc = true; // Variabele om de sorteervolgorde bij te houden

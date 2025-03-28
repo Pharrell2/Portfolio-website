@@ -161,7 +161,7 @@ h2 {
 
 /* Achtergrondafbeelding stijlen */
 .bg-image {
-  background-image: url('SharpJan20.jpg'); /* Vervang door je eigen achtergrondafbeelding */
+  background-image: url('../img/SharpJan20.jpg'); /* Vervang door je eigen achtergrondafbeelding */
   background-size: cover;
   position: relative;
   height: 100vh; /* Pas de hoogte aan zoals nodig, dit vult het venster */
