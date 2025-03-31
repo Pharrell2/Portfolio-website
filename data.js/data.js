@@ -20,7 +20,7 @@ const highend = [
     { name: 'Austin Sheerline', price: 59950, image: '../img/Austin Sheerline.jpg', country: 'UK', favorite: false },
     { name: 'Rolls Royce Phantom', price: 562769, image: '../img/rolls-royce-phantom.webp', country: 'UK', favorite: true },
     { name: 'Packard Eight', price: 110725, image: '../img/Packard.jpeg', country: 'UK', favorite: false },
-    { name: 'Bugatti', price: 1900000, image: '../img/bugatti-veyron.jpg', country: 'France', favorite: false },
+    { name: 'Dusenberg', price: 1743273, image: '../img/Dusenberg.jpg', country: 'USA', favorite: false },
     { name: 'Koenigsegg', price: 1500000, image: '../img/koenigsegg.jpg', country: 'Sweden', favorite: true },
     { name: 'McLaren P1', price: 1100000, image: '../img/McLaren_P1.jpg', country: 'UK', favorite: false },
 ];
