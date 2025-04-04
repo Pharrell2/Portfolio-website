@@ -1,28 +1,32 @@
 let sortAsc = true; // Variabele om de sorteervolgorde bij te houden
 
-// Haal de juiste dataset op op basis van de huidige pagina
-let cars = [];
+// Dit is hoe de data wordt weergeven in de site. De url geeft aan wat voor data  (auto/ moter info) er wordt geladen. Bij home wordt alles geladen.
+let carousel;
 
 if (window.location.pathname.includes("home.html")) {
-    cars = cars;
+    carousel = []
+    // spreid de motercyles array zodat het gebruikt mag worden in de push functie
+    carousel.push(...cars)
 } else if (window.location.pathname.includes("motorcycles.html")) {
-    cars = motorcycles;
+    carousel = motorcycles;
 } else if (window.location.pathname.includes("high-end.html")) {
-    cars = highend;
+    carousel = highend;
 } else if (window.location.pathname.includes("offroad.html")) {
-    cars = offroad;
+    carousel = offroad;
 } else if (window.location.pathname.includes("special.html")) {
-    cars = special;
+    carousel = special;
+} else{
+    console.log("verkeerde pagina!")
 }
 
 // User story 1: Auto's filteren op land
-function displayCars(selectedCountry, showFavorites) {
+function displaycarousel(selectedCountry, showFavorites) {
     const carList = document.getElementById('carList');
     carList.innerHTML = '';
 
-    let filteredCars = getSortedCars(selectedCountry, showFavorites);
+    let filteredcarousel = getSortedcarousel(selectedCountry, showFavorites);
 
-    filteredCars.forEach((car, index) => {
+    filteredcarousel.forEach((car, index) => {
         const carBox = document.createElement('div');
         carBox.className = 'car-box col-md-4 mb-3';
         carBox.innerHTML = `
@@ -51,23 +55,23 @@ function displayCars(selectedCountry, showFavorites) {
     });
 }
 
-// User story 2: Favoriete Hypercars markeren
-function getSortedCars(selectedCountry, showFavorites) {
-    let filteredCars = cars.filter((car) =>
+// User story 2: Favoriete Hypercarousel markeren
+function getSortedcarousel(selectedCountry, showFavorites) {
+    let filteredcarousel = carousel.filter((car) =>
         (selectedCountry === 'all' || car.country === selectedCountry) &&
         (!showFavorites || car.favorite)
     );
 
     // User story 3: Auto's sorteren op prijs
-    filteredCars.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
+    filteredcarousel.sort((a, b) => sortAsc ? a.price - b.price : b.price - a.price);
 
-    return filteredCars;
+    return filteredcarousel;
 }
 
 // User story 4: Details van voertuigen bekijken
 function updateCarDetails(index) {
     const carDetailsContainer = document.getElementById('carDetails');
-    const selectedCar = cars[index];
+    const selectedCar = carousel[index];
 
     const carDetails = document.createElement('div');
     carDetails.className = 'car-details col-md-12';
@@ -86,7 +90,6 @@ function updateCarDetails(index) {
         </div>
     `;
 
-    // Clear previous car details
     carDetailsContainer.innerHTML = '';
     carDetailsContainer.appendChild(carDetails);
 }
@@ -97,11 +100,11 @@ filterForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const selectedCountry = document.getElementById('country').value;
     const showFavorites = document.getElementById('favorites').checked;
-    displayCars(selectedCountry, showFavorites);
+    displaycarousel(selectedCountry, showFavorites);
 });
 
 // Initiële weergave van alle auto's
-displayCars('all', false);
+displaycarousel('all', false);
 
 // Sorteerknop functionaliteit
 const sortPriceBtn = document.getElementById('sortPriceBtn');
@@ -109,7 +112,7 @@ sortPriceBtn.addEventListener('click', () => {
     sortAsc = !sortAsc;
     const selectedCountry = document.getElementById('country').value;
     const showFavorites = document.getElementById('favorites').checked;
-    displayCars(selectedCountry, showFavorites);
+    displaycarousel(selectedCountry, showFavorites);
 });
 
 // Navigatiefunctie
@@ -121,8 +124,10 @@ function navigateToPage(page) {
 function openCarDetailsModal(index) {
     const selectedCountry = document.getElementById('country').value;
     const showFavorites = document.getElementById('favorites').checked;
-    const sortedCars = getSortedCars(selectedCountry, showFavorites);
-    const selectedCar = sortedCars[index];
+    const sortedcarousel = getSortedcarousel(selectedCountry, showFavorites);
+
+    const selectedCar = sortedcarousel[index];
+    if (!selectedCar) return;
 
     const modalContent = document.getElementById('modalContent');
     modalContent.innerHTML = `
