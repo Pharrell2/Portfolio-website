@@ -1,12 +1,12 @@
 let sortAsc = true; // Variabele om de sorteervolgorde bij te houden
 
-// Dit is hoe de data wordt weergeven in de site. De url geeft aan wat voor data  (auto/ moter info) er wordt geladen. Bij home wordt alles geladen.
+// Dit is hoe de data wordt weergeven in de site. De url geeft aan wat voor data (auto/ moter info) er wordt geladen. Bij home wordt alles geladen.
 let carousel;
 
 if (window.location.pathname.includes("home.html")) {
-    carousel = []
+    carousel = [];
     // spreid de motercyles array zodat het gebruikt mag worden in de push functie
-    carousel.push(...cars)
+    carousel.push(...cars);
 } else if (window.location.pathname.includes("motorcycles.html")) {
     carousel = motorcycles;
 } else if (window.location.pathname.includes("high-end.html")) {
@@ -15,8 +15,8 @@ if (window.location.pathname.includes("home.html")) {
     carousel = offroad;
 } else if (window.location.pathname.includes("special.html")) {
     carousel = special;
-} else{
-    console.log("verkeerde pagina!")
+} else {
+    console.log("verkeerde pagina!");
 }
 
 // User story 1: Auto's filteren op land
@@ -55,7 +55,7 @@ function displaycarousel(selectedCountry, showFavorites) {
     });
 }
 
-// User story 2: Favoriete Hypercarousel markeren
+// User story 2: Favoriete voertuigen markeren
 function getSortedcarousel(selectedCountry, showFavorites) {
     let filteredcarousel = carousel.filter((car) =>
         (selectedCountry === 'all' || car.country === selectedCountry) &&
@@ -103,7 +103,23 @@ filterForm.addEventListener('submit', (e) => {
     displaycarousel(selectedCountry, showFavorites);
 });
 
-// Initiële weergave van alle auto's
+// ✅ Automatische filtering bij wijzigen van land of favorieten checkbox
+const countrySelect = document.getElementById('country');
+const favoritesCheckbox = document.getElementById('favorites');
+
+countrySelect.addEventListener('change', () => {
+    const selectedCountry = countrySelect.value;
+    const showFavorites = favoritesCheckbox.checked;
+    displaycarousel(selectedCountry, showFavorites);
+});
+
+favoritesCheckbox.addEventListener('change', () => {
+    const selectedCountry = countrySelect.value;
+    const showFavorites = favoritesCheckbox.checked;
+    displaycarousel(selectedCountry, showFavorites);
+});
+
+// Initiële weergave van alle voertuigen
 displaycarousel('all', false);
 
 // Sorteerknop functionaliteit
