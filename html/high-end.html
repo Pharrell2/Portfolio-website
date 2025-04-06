@@ -17,8 +17,7 @@
     <div class="bg-image">
         <div class="overlay">
             <div class="overlay-text">
-                Real Motorsport
-                for Motorsport lovers
+                Real Motorsport for Motorsport lovers
             </div>
         </div>
     </div>
@@ -26,52 +25,46 @@
     <div class="container mt-4">
         <div class="row">
             <!-- Filterformulier en Sorteer op prijs-knop -->
-          <div class="col-md-4 filter-sort-container">
-           <form id="filterForm" class="filters">
-        <div class="form-group">
-            <label for="country">Country:</label>
-            <!-- Dropdown voor landselectie -->
-            <select class="form-control" id="country">
-                <option value="all">All</option>
-                <option value="USA">USA</option>
-                <option value="USA">France</option>
-                <option value="Italy">Italy</option>
-                <option value="UK">UK</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Japan">Japan</option>
-                <option value="Germany">Germany</option>
-        </div>
-        <div class="form-check">
-            <!-- Checkbox voor favorieten -->
-            <input type="checkbox" class="form-check-input" id="favorites">
-            <label class="form-check-label" for="favorites">Favorites Only</label>
-        </div>
-    </form>
-    <!-- Sorteer op prijs-knop -->
-    <button id="sortPriceBtn" class="btn btn-secondary sort-button">Sort by price</button>
-</div>
+            <div class="col-md-4 filter-sort-container">
+                <form id="filterForm" class="filters">
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <!-- Dropdown voor landselectie -->
+                        <select class="form-control" id="country">
+                            <option value="all">All</option>
+                            <option value="USA">Italy</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Germany">Germany</option>
+                    </div>
+                    <div class="form-check">
+                        <!-- Checkbox voor favorieten -->
+                        <input type="checkbox" class="form-check-input" id="favorites">
+                        <label class="form-check-label" for="favorites">Favorites Only</label>
+                    </div>
+                </form>
+                <!-- Sorteer op prijs-knop -->
+                <button id="sortPriceBtn" class="btn btn-secondary sort-button">Sort by price</button>
+            </div>
             <!-- Hoofdinhoud -->
             <div class="col-md-8">
-              <!-- Hoofdtitel met Sorteer op prijs-knop -->
+                <!-- Hoofdtitel met Sorteer op prijs-knop -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                <h2 class="text-center mb-0">The top Hypercars</h2>
+                    <h2 class="text-center mb-0">The top Hypercars</h2>
                 </div>
                 <div class="container mb-3">
                     <div class="row">
                         <div class="col-md-12 text-center button-container">
-                                <!-- Grote doos met knoppen -->
-<div class="big-box">
-    <div class="big-box-buttons">
-        <!-- Vijf knoppen -->
-        <button class="btn btn-primary" onclick="window.location.href='home.html'">Home</button>
-        <button class="btn btn-primary" onclick="window.location.href='motorcycles.html'">Motorcycles</button>
-        <button class="btn btn-primary" onclick="window.location.href='offroad.html'">Offroad</button>
-        <button class="btn btn-primary" onclick="window.location.href='special.html'">Special</button>
-        <button class="btn btn-primary" onclick="window.location.href='high-end.html'">High-End</button>
-    </div>
-</div>
-
-
+                            <!-- Grote doos met knoppen -->
+                            <div class="big-box">
+                                <div class="big-box-buttons">
+                                    <!-- Vijf knoppen -->
+                                    <button class="btn btn-primary" onclick="navigateToPage('home.html')">Home</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('motorcycles.html')">Motorcycles</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('offroad.html')">Offroad</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('special.html')">Special</button>
+                                    <button class="btn btn-primary" onclick="navigateToPage('high-end.html')">High-End</button>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12 car-list-container">
                                     <div id="carList" class="row">
@@ -86,39 +79,32 @@
         </div>
     </div>
 
-    <!-- Modaal venster voor auto-details -->
-    <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <!-- Titel modaal venster -->
-                    <h5 class="modal-title" id="exampleModalLabel">Car Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- Afbeelding van de auto -->
-                            <img src="" class="modal-car-image" alt="Car Image">
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Naam, prijs en land van de auto -->
-                            <h5 class="modal-car-name"></h5>
-                            <p class="modal-car-price"></p>
-                            <p class="modal-car-country"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <!-- Sluitknop modaal venster -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <!-- Car details sectie -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 car-details-container">
+                <div id="carDetails" class="row">
+                    <!-- Car details will be displayed here -->
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modaal venster voor autogegevens -->
+    <div id="carDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCarDetailsModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
     
+    </script>
 </body>
+
 <script src="../data.js/data.js"></script>
 <script src="../script.js/script.js"></script>
 </html>
+```
+

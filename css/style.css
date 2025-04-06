@@ -161,7 +161,7 @@ h2 {
 
 /* Achtergrondafbeelding stijlen */
 .bg-image {
-  background-image: url('../imgSharpJan20.jpg'); /* Vervang door je eigen achtergrondafbeelding */
+  background-image: url('../img/SharpJan20.jpg'); /* Vervang door je eigen achtergrondafbeelding */
   background-size: cover;
   position: relative;
   height: 100vh; /* Pas de hoogte aan zoals nodig, dit vult het venster */
@@ -252,7 +252,7 @@ h2 {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 1;
 }
 
 .big-box-buttons button {
